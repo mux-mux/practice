@@ -1,5 +1,7 @@
+import { MasterDetail } from 'components/MasterDetail/MasterDetail';
+
 function App() {
-    return <h1>Header</h1>;
+    return <MasterDetail> </MasterDetail>;
 }
 
 export default App;

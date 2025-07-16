@@ -1,0 +1,28 @@
+:root {
+    --divider-color: #0003;
+
+    --active-text-shadow: 2px 2px #e1ccff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin: 0;
+    text-shadow: var(--passive-text-shadow);
+}
+
+h2 {
+    margin: 0;
+    text-shadow: var(--passive-text-shadow);
+}
+
+h3 {
+    margin: 0;
+    color: rgb(102, 102, 102);
+}
+
+div {
+    box-sizing: border-box;
+}

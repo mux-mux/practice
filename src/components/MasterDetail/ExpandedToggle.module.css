@@ -1,0 +1,14 @@
+.expandedToggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.expandedToggle:hover {
+    text-shadow: var(--active-text-shadow);
+}
