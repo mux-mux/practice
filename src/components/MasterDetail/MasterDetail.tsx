@@ -1,11 +1,12 @@
 // import { RouterPath } from 'config/RouterPath';
-import { BrowserRouter, NavLink } from 'react-router';
-import { CSSProperties, ReactNode } from 'react';
+import { BrowserRouter, NavLink, PathRouteProps } from 'react-router';
+import { CSSProperties, ReactNode, useCallback, useState } from 'react';
 import { DEFAULT_TITLE } from 'hooks/useDocumentTitle';
 import classes from './MasterDetail.module.css';
 import { ExpandToggle } from './ExpandToggle';
 import { useToggle } from 'hooks/useToggle';
 import { RouterPath } from 'config/RouterPath';
+import { MasterDetailContext } from './MasterDetailContext';
 
 const COLLAPSED_WIDTH = '44px';
 //({}) - to return an Object
@@ -16,7 +17,18 @@ const buildMasterStyle = (expanded: boolean): CSSProperties => ({
 });
 
 export function MasterDetail({ children }: { children: ReactNode }) {
+    const [, /*routes*/ setRoutes] = useState<PathRouteProps[]>([]);
     const [expanded, toggleExpanded] = useToggle(true);
+
+    //add a unique route
+    const addRoute = useCallback((route: PathRouteProps) => {
+        setRoutes((array) => {
+            if (array.some((item) => item.path === route.path)) {
+                return array;
+            }
+            return [...array, route];
+        });
+    }, []);
 
     return (
         <BrowserRouter>
@@ -30,6 +42,13 @@ export function MasterDetail({ children }: { children: ReactNode }) {
                             </NavLink>
                         )}
                     </div>
+                    {expanded && (
+                        <div className={classes.tableOfContents}>
+                            <MasterDetailContext.Provider value={{ addRoute }}>
+                                {children}
+                            </MasterDetailContext.Provider>
+                        </div>
+                    )}
                 </nav>
                 <main>{children}</main>
             </div>
