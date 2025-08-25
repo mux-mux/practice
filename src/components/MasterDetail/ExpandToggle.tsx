@@ -1,4 +1,3 @@
-import { DEFAULT_TITLE } from 'hooks/useDocumentTitle';
 import classes from './ExpandedToggle.module.css';
 
 type Props = {
@@ -8,9 +7,8 @@ type Props = {
 
 export function ExpandToggle({ expanded, onClick }: Props) {
     return (
-        <button className={classes.expandedToggle} onClick={onClick}>
+        <div className={classes.expandedToggle} onClick={onClick}>
             {expanded ? '➖' : '➕'}
-            {expanded && <h2>{DEFAULT_TITLE}</h2>}
-        </button>
+        </div>
     );
 }
