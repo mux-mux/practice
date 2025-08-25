@@ -1,12 +1,15 @@
 // import { RouterPath } from 'config/RouterPath';
-import { BrowserRouter, NavLink, PathRouteProps } from 'react-router';
-import { CSSProperties, ReactNode, useCallback, useState } from 'react';
+import { BrowserRouter, NavLink, PathRouteProps, Route, Routes } from 'react-router';
+import { CSSProperties, lazy, ReactNode, Suspense, useCallback, useState } from 'react';
 import { DEFAULT_TITLE } from 'hooks/useDocumentTitle';
 import classes from './MasterDetail.module.css';
 import { ExpandToggle } from './ExpandToggle';
 import { useToggle } from 'hooks/useToggle';
 import { RouterPath } from 'config/RouterPath';
 import { MasterDetailContext } from './MasterDetailContext';
+import { LoadingSpinner } from 'components/LoadingSpinner/LoadingSpinner';
+
+const Background = lazy(() => import('./Background'));
 
 const COLLAPSED_WIDTH = '44px';
 //({}) - to return an Object
@@ -50,7 +53,13 @@ export function MasterDetail({ children }: { children: ReactNode }) {
                         </div>
                     )}
                 </nav>
-                <main>{children}</main>
+                <main className={classes.detail}>
+                    <Suspense fallback={<LoadingSpinner />}>
+                        <Routes>
+                            <Route path={RouterPath.ROOT} element={<Background />} />
+                        </Routes>
+                    </Suspense>
+                </main>
             </div>
         </BrowserRouter>
     );
