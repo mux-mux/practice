@@ -8,6 +8,7 @@ import { useToggle } from 'hooks/useToggle';
 import { RouterPath } from 'config/RouterPath';
 import { MasterDetailContext } from './MasterDetailContext';
 import { LoadingSpinner } from 'components/LoadingSpinner/LoadingSpinner';
+import NotFound from './NotFound';
 
 const Background = lazy(() => import('./Background'));
 
@@ -57,6 +58,7 @@ export function MasterDetail({ children }: { children: ReactNode }) {
                     <Suspense fallback={<LoadingSpinner />}>
                         <Routes>
                             <Route path={RouterPath.ROOT} element={<Background />} />
+                            <Route path={RouterPath.PAGE_NOT_FOUND} element={<NotFound />} />
                         </Routes>
                     </Suspense>
                 </main>
