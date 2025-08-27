@@ -1,6 +1,7 @@
 :root {
     --divider-color: #0003;
 
+    --passive-text-shadow: 2px 2px #eadff9;
     --active-text-shadow: 2px 2px #e1ccff;
 }
 
