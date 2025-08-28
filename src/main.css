@@ -27,3 +27,7 @@ h3 {
 div {
     box-sizing: border-box;
 }
+
+.flex1 {
+    flex: 1;
+}
