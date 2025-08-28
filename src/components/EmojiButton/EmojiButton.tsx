@@ -4,7 +4,7 @@ import classes from './EmojiButton.module.css';
 export type EmojiButtonProps = {
     emoji: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
-    disabled: boolean;
+    disabled?: boolean;
     tooltip: string;
 };
 
