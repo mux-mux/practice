@@ -1,9 +1,10 @@
-import { Section } from 'components/MasterDetail/Section';
+import { Chapter, Section } from 'components/MasterDetail';
+import { RouterPath } from 'config/RouterPath';
 
 export function RoutingSection() {
     return (
         <Section title="Routing">
-            <div>Routing</div>
+            <Chapter emoji="🛤️" title="Dynamic Routes" path={RouterPath.DYNAMIC_ROUTES} />
         </Section>
     );
 }
