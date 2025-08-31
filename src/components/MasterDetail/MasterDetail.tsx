@@ -10,6 +10,9 @@ import { MasterDetailContext } from './MasterDetailContext';
 import { LoadingSpinner } from 'components/LoadingSpinner/LoadingSpinner';
 import NotFound from './NotFound';
 import About from 'about/About';
+import { DynamicRoutes } from '9-Routing/DynamicRoutes/DynamicRoutes';
+import { BreedsList } from '9-Routing/DynamicRoutes/BreedsList';
+import { Breed } from '9-Routing/DynamicRoutes/Breed';
 
 const Background = lazy(() => import('./Background'));
 
@@ -22,7 +25,7 @@ const buildMasterStyle = (expanded: boolean): CSSProperties => ({
 });
 
 export function MasterDetail({ children }: { children: ReactNode }) {
-    const [, /*routes*/ setRoutes] = useState<PathRouteProps[]>([]);
+    const [routes, setRoutes] = useState<PathRouteProps[]>([]);
     const [expanded, toggleExpanded] = useToggle(true);
 
     //add a unique route
@@ -61,6 +64,16 @@ export function MasterDetail({ children }: { children: ReactNode }) {
                             <Route path={RouterPath.ROOT} element={<Background />} />
                             <Route path={RouterPath.ABOUT} element={<About />} />
                             <Route path={RouterPath.PAGE_NOT_FOUND} element={<NotFound />} />
+
+                            <Route path={RouterPath.DYNAMIC_ROUTES} element={<DynamicRoutes />}>
+                                <Route path="breeds" element={<BreedsList />}>
+                                    <Route path=":breedId" element={<Breed />} />
+                                </Route>
+                            </Route>
+
+                            {routes.map((props) => (
+                                <Route key={props.path} {...props} />
+                            ))}
                         </Routes>
                     </Suspense>
                 </main>
