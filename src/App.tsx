@@ -4,10 +4,12 @@ import { StyledLink } from 'components/StyledLink/StyledLink';
 import { RouterPath } from 'config/RouterPath';
 import { RoutingSection } from '9-Routing/RoutingSection';
 import { OutsideLink } from 'components/OutsideLink/OutsideLink';
+import { IntroSection } from '0-Intro/IntroSection';
 
 function App() {
     return (
         <MasterDetail>
+            <IntroSection />
             <RoutingSection />
 
             <div className={classes.linksSection}>
