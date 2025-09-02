@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import classes from './TypicalComponent.module.css';
+import { ColoredBlock } from 'components/ColoredBlock/ColoredBlock';
 
 export type Props = {
     name: string;
@@ -7,12 +8,20 @@ export type Props = {
     children?: ReactNode;
 };
 
+const BLOCK_STYLE: CSSProperties = {
+    flex: 1,
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+};
+
 export function TypicalComponent({ name, isRoot = false, children }: Props) {
     return (
-        <div>
+        <ColoredBlock style={BLOCK_STYLE}>
             &lt;{name} /&gt;
             {!isRoot && <div className={classes.arrow}>⇩</div>}
             {children && <div className={classes.children}>{children}</div>}
-        </div>
+        </ColoredBlock>
     );
 }
