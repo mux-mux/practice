@@ -1,5 +1,6 @@
 import { ChapterWrapper } from 'components/ChapterWrapper/ChapterWrapper';
 import { TypicalComponent } from './TypicalComponent';
+import { TextBlock } from 'components/TextBlock/TextBlock';
 
 export function ReactTraits() {
     return (
@@ -7,6 +8,17 @@ export function ReactTraits() {
             title="React traits"
             subtitle="How React is different from other libraries?"
         >
+            <TextBlock type="info">
+                <ul style={{ listStyleType: 'none', margin: 0, padding: 0, fontSize: 24 }}>
+                    <li>🗂 Declarative</li>
+                    <li>🌳 Virtual DOM</li>
+                    <li>⬇️ Unidirectional data flow</li>
+                    <li>📝 JSX - Special syntax to describe UI</li>
+                    <li>🏗 Components as main building blocks of your app</li>
+                    <li>🪝 Hooks helps to encapsulate business logic</li>
+                </ul>
+            </TextBlock>
+
             <h4>This is how a typical React app looks like:</h4>
 
             <TypicalComponent name="App" isRoot>
