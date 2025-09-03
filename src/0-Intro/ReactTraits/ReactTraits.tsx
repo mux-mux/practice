@@ -1,8 +1,15 @@
 import { ChapterWrapper } from 'components/ChapterWrapper/ChapterWrapper';
 import { TypicalComponent } from './TypicalComponent';
 import { TextBlock } from 'components/TextBlock/TextBlock';
+import { useRerender } from 'hooks/useRerender';
 
 export function ReactTraits() {
+    const rerender = useRerender();
+
+    setInterval(() => {
+        rerender();
+    }, 3000);
+
     return (
         <ChapterWrapper
             title="React traits"
