@@ -2,13 +2,12 @@ import { ChapterWrapper } from 'components/ChapterWrapper/ChapterWrapper';
 import { TypicalComponent } from './TypicalComponent';
 import { TextBlock } from 'components/TextBlock/TextBlock';
 import { useRerender } from 'hooks/useRerender';
+import { useInterval } from 'hooks/useInterval';
 
 export function ReactTraits() {
     const rerender = useRerender();
 
-    setInterval(() => {
-        rerender();
-    }, 3000);
+    useInterval(rerender, 1000);
 
     return (
         <ChapterWrapper
