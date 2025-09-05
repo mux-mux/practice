@@ -3,6 +3,7 @@ import { ReactTraits } from './ReactTraits/ReactTraits';
 import { RouterPath } from 'config/RouterPath';
 import { HelloWorld } from './HelloWorld';
 import { JsxBasics } from './JSX/JsxBasics';
+import { ReactWithoutJsx } from './JSX/ReactWithoutJsx';
 
 export function IntroSection() {
     return (
@@ -26,6 +27,12 @@ export function IntroSection() {
                     title="JSX Basics"
                     path={RouterPath.JSX_BASICS}
                     element={<JsxBasics />}
+                />
+                <Chapter
+                    emoji="🏗"
+                    title="React.createElement()"
+                    path={RouterPath.JSX_CREATE_ELEMENT}
+                    element={<ReactWithoutJsx />}
                 />
             </Section>
         </Section>
