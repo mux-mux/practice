@@ -4,6 +4,7 @@ import { RouterPath } from 'config/RouterPath';
 import { HelloWorld } from './HelloWorld';
 import { JsxBasics } from './JSX/JsxBasics';
 import { ReactWithoutJsx } from './JSX/ReactWithoutJsx';
+import { Fragments } from './JSX/Fragments';
 
 export function IntroSection() {
     return (
@@ -33,6 +34,12 @@ export function IntroSection() {
                     title="React.createElement()"
                     path={RouterPath.JSX_CREATE_ELEMENT}
                     element={<ReactWithoutJsx />}
+                />
+                <Chapter
+                    emoji="📎"
+                    title="Fragments"
+                    path={RouterPath.JSX_FRAGMENTS}
+                    element={<Fragments />}
                 />
             </Section>
         </Section>

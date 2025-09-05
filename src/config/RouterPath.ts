@@ -8,6 +8,7 @@ export enum RouterPath {
     HELLO_WORLD = 'intro/hello-world',
     JSX_BASICS = 'intro/jsx-basics',
     JSX_CREATE_ELEMENT = 'intro/jsx-create-element',
+    JSX_FRAGMENTS = 'intro/jsx-fragments',
 
     // routing
     DYNAMIC_ROUTES = 'routing/dynamic-routes',
