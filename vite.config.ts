@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react-swc';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import * as tsconfigPaths from 'vite-tsconfig-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -8,6 +9,7 @@ const VENDOR_LIBS = ['/react/', '/react-dom/', '/react-router/', '/lodash/'];
 export default defineConfig({
     plugins: [
         react(),
+        tailwindcss(),
         tsconfigPaths.default(),
         visualizer({
             filename: 'bundle-stats.html',
