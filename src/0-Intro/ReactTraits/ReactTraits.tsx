@@ -1,8 +1,8 @@
-import { ChapterWrapper } from 'components/ChapterWrapper/ChapterWrapper';
+import { ChapterWrapper } from '@/components/ChapterWrapper/ChapterWrapper';
 import { TypicalComponent } from './TypicalComponent';
-import { TextBlock } from 'components/TextBlock/TextBlock';
-import { useRerender } from 'hooks/useRerender';
-import { useInterval } from 'hooks/useInterval';
+import { TextBlock } from '@/components/TextBlock/TextBlock';
+import { useRerender } from '@/hooks/useRerender';
+import { useInterval } from '@/hooks/useInterval';
 
 export function ReactTraits() {
     const rerender = useRerender();

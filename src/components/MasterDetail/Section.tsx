@@ -1,7 +1,7 @@
 import { Children, CSSProperties, ReactNode, useEffect, useState } from 'react';
 import classes from './Section.module.css';
 import { useLocation } from 'react-router';
-import { cn } from 'utils/cn';
+import { cn } from '@/utils/cn';
 import { ExpandToggle } from './ExpandToggle';
 
 type SectionProps = {

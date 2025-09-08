@@ -1,4 +1,4 @@
-import { cn } from 'utils/cn';
+import { cn } from '@/utils/cn';
 import classes from './TextBlock.module.css';
 import { CSSProperties, ReactNode } from 'react';
 

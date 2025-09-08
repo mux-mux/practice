@@ -1,4 +1,4 @@
-import { ChapterWrapper } from 'components/ChapterWrapper/ChapterWrapper';
+import { ChapterWrapper } from '@/components/ChapterWrapper/ChapterWrapper';
 import { Fragment } from 'react';
 
 function Fruits() {

@@ -1,10 +1,10 @@
-import { MasterDetail } from 'components/MasterDetail';
-import classes from 'App.module.css';
-import { StyledLink } from 'components/StyledLink/StyledLink';
-import { RouterPath } from 'config/RouterPath';
-import { RoutingSection } from '9-Routing/RoutingSection';
-import { OutsideLink } from 'components/OutsideLink/OutsideLink';
-import { IntroSection } from '0-Intro/IntroSection';
+import { MasterDetail } from '@/components/MasterDetail';
+import classes from '@/App.module.css';
+import { StyledLink } from '@/components/StyledLink/StyledLink';
+import { RouterPath } from '@/config/RouterPath';
+import { RoutingSection } from '@/9-Routing/RoutingSection';
+import { OutsideLink } from '@/components/OutsideLink/OutsideLink';
+import { IntroSection } from '@/0-Intro/IntroSection';
 
 function App() {
     return (

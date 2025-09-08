@@ -1,10 +1,11 @@
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
 import { defineConfig } from 'vite';
 import * as tsconfigPaths from 'vite-tsconfig-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
 
-const VENDOR_LIBS = ['/react/', '/react-dom/', '/react-router/', '/lodash/'];
+const VENDOR_LIBS = ['/react/', '/react-dom/', '/react-router/', '/lodash/', '/tailwind/'];
 
 export default defineConfig({
     plugins: [
@@ -35,6 +36,11 @@ export default defineConfig({
                     }
                 },
             },
+        },
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
         },
     },
 });

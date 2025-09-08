@@ -1,4 +1,4 @@
-import { ChapterWrapper } from 'components/ChapterWrapper/ChapterWrapper';
+import { ChapterWrapper } from '@/components/ChapterWrapper/ChapterWrapper';
 import { createElement } from 'react';
 
 export function ReactWithoutJsx() {

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { NavLink, NavLinkProps } from 'react-router';
-import { cn } from 'utils/cn';
+import { cn } from '@/utils/cn';
 import classes from './StyledLink.module.css';
 
 export type LinkProps = NavLinkProps & {

@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode } from 'react';
 import classes from './TypicalComponent.module.css';
-import { ColoredBlock } from 'components/ColoredBlock/ColoredBlock';
+import { ColoredBlock } from '@/components/ColoredBlock/ColoredBlock';
 
 export type Props = {
     name: string;

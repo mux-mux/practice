@@ -1,5 +1,5 @@
-import { Chapter, Section } from 'components/MasterDetail';
-import { RouterPath } from 'config/RouterPath';
+import { Chapter, Section } from '@/components/MasterDetail';
+import { RouterPath } from '@/config/RouterPath';
 
 export function RoutingSection() {
     return (

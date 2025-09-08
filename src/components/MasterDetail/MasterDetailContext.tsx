@@ -1,4 +1,4 @@
-import { createContextHook } from 'hooks/createContextHook';
+import { createContextHook } from '@/hooks/createContextHook';
 import { createContext } from 'react';
 import { PathRouteProps } from 'react-router';
 

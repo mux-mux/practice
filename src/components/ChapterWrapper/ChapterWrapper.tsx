@@ -1,9 +1,9 @@
 import { ReactElement, ReactNode } from 'react';
 import classes from './ChapterWrapper.module.css';
 import { useNavigate } from 'react-router';
-import { FlexFiller } from 'components/FlexFiller/FlexFiller';
-import { EmojiButton } from 'components/EmojiButton/EmojiButton';
-import { cn } from 'utils/cn';
+import { FlexFiller } from '@/components/FlexFiller/FlexFiller';
+import { EmojiButton } from '@/components/EmojiButton/EmojiButton';
+import { cn } from '@/utils/cn';
 
 export type ChapterWrapperProps = {
     title: string | ReactElement;

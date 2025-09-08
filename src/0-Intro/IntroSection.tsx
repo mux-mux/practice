@@ -1,6 +1,6 @@
-import { Chapter, Section } from 'components/MasterDetail';
+import { Chapter, Section } from '@/components/MasterDetail';
 import { ReactTraits } from './ReactTraits/ReactTraits';
-import { RouterPath } from 'config/RouterPath';
+import { RouterPath } from '@/config/RouterPath';
 import { HelloWorld } from './HelloWorld';
 import { JsxBasics } from './JSX/JsxBasics';
 import { ReactWithoutJsx } from './JSX/ReactWithoutJsx';
