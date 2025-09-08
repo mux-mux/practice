@@ -12,4 +12,7 @@ export enum RouterPath {
 
     // routing
     DYNAMIC_ROUTES = 'routing/dynamic-routes',
+
+    //challenges
+    PAGINATION = 'challenges/pagination-app',
 }

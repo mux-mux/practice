@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from 'react';
-import { RouterPath } from 'config/RouterPath';
+import { RouterPath } from '@/config/RouterPath';
 import classes from './Chapter.module.css';
 import { NavLink } from 'react-router';
 import { useMasterDetailContext } from './MasterDetailContext';
