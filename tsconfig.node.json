@@ -3,7 +3,8 @@
         "composite": true,
         "module": "esnext",
         "moduleResolution": "node",
-        "lib": ["ES2020"]
+        "lib": ["ES2020"],
+        "ignoreDeprecations": "6.0"
     },
     "include": ["vite.config.ts"]
 }
