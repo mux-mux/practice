@@ -39,40 +39,51 @@ export function Pagination() {
     }
 
     return (
-        <div className="min-h-full">
+        <div className="min-h-screen bg-background p-4 md:p-8">
             <div className="mx-auto max-w-3xl px-2 border border-gray-200 rounded-xl p-6">
-                <h1 className="text-3xl text-center font-semibold py-6">Posts Pagination</h1>
+                <h1 className="text-2xl md:text-3xl text-center font-semibold py-6">
+                    Posts Pagination
+                </h1>
                 <div className="flex flex-col space-y-4 mb-6">
                     {loading
                         ? arrayFrom(PER_PAGE).map((index) => (
-                              <Skeleton key={index} className="h-10 w-full" />
+                              <div key={index} className="space-y-2">
+                                  <Skeleton className="h-6 w-3/4" />
+                                  <Skeleton className="h-4 w-full" />
+                                  <Skeleton className="h-4 w-5/6" />
+                              </div>
                           ))
                         : data?.map(({ id, title, body }) => (
-                              <div key={id} className="p-4 border border-gray-200 rounded">
-                                  <h2 className="text-xl font-semibold">{title}</h2>
-                                  <p className="pt-4">{body}</p>
+                              <div key={id} className="p-4 border border-gray-200 rounded-lg">
+                                  <h3 className="text-lg font-semibold">{title}</h3>
+                                  <p className="mt-2">{body}</p>
                               </div>
                           ))}
                 </div>
-                <div className="flex justify-between items-center">
-                    <div>{`Page ${page} of ${totalPages}`}</div>
-                    <div className="flex gap-2">
+                <div className="flex flex-col flex-wrap justify-between items-center gap-4 sm:flex-row">
+                    <div className="text-sm">{`Page ${page} of ${totalPages}`}</div>
+                    <div className="flex items-center gap-2">
                         <Button
                             onClick={handlePrevPage}
-                            disabled={loading || page < 1}
+                            disabled={loading || page === 1}
                             variant="outline"
                         >
                             Previuos
                         </Button>
-                        <div className="flex gap-1">
-                            {arrayFrom(totalPages).map((index) => (
-                                <Button
-                                    onClick={() => goToPage(index)}
-                                    variant={page === index ? 'default' : 'outline'}
-                                >
-                                    {index}
-                                </Button>
-                            ))}
+                        <div className="flex items-center gap-1 sm:flex">
+                            {arrayFrom(totalPages).map((index) => {
+                                const pageNum = index + 1;
+                                return (
+                                    <Button
+                                        onClick={() => goToPage(pageNum)}
+                                        variant={page === pageNum ? 'default' : 'outline'}
+                                        disabled={loading}
+                                        className="h-10 w-10 p-0"
+                                    >
+                                        {pageNum}
+                                    </Button>
+                                );
+                            })}
                         </div>
                         <Button
                             onClick={handleNextPage}
