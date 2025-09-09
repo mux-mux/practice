@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useFetch } from '@/hooks/useFetch';
 import { useState } from 'react';
+import { Error } from './Error';
 
 type Post = {
     id: number;
@@ -29,17 +30,12 @@ export function Pagination() {
     const goToPage = (pageNum: number) => {
         setPage(pageNum);
     };
-    const arrayFrom = (len: number) => {
-        return [...Array(len).keys()];
+    const arrayFrom = (length: number) => {
+        return [...Array(length).keys()];
     };
 
     if (error) {
-        return (
-            <div className="min-h-full">
-                <div className="flex items-center justify-center">Error message: {error}</div>
-                <button onClick={() => window.location.reload()}>Reload page</button>
-            </div>
-        );
+        return <Error title="posts" error={error} />;
     }
 
     return (
