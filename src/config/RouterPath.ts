@@ -15,4 +15,5 @@ export enum RouterPath {
 
     //challenges
     PAGINATION = 'challenges/pagination-app',
+    TODO = 'challenges/todo-app',
 }

@@ -1,6 +1,7 @@
 import { Chapter, Section } from '@/components/MasterDetail';
 import { RouterPath } from '@/config/RouterPath';
 import { Pagination } from './01-Pagination';
+import { ToDo } from './02-ToDo';
 
 export function ChallengesSection() {
     return (
@@ -11,6 +12,7 @@ export function ChallengesSection() {
                 path={RouterPath.PAGINATION}
                 element={<Pagination />}
             />
+            <Chapter emoji="✅" title="ToDo app" path={RouterPath.TODO} element={<ToDo />} />
         </Section>
     );
 }

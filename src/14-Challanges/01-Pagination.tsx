@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useFetch } from '@/hooks/useFetch';
 import { useState } from 'react';
-import { Error } from './Error';
+import { ErrorPage } from './ErrorPage';
 
 type Post = {
     id: number;
@@ -35,7 +35,7 @@ export function Pagination() {
     };
 
     if (error) {
-        return <Error title="posts" error={error} />;
+        return <ErrorPage title="posts" error={error} />;
     }
 
     return (

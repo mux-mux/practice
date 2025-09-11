@@ -3,7 +3,7 @@ import { Card, CardContent, CardTitle } from '@/components/ui/card';
 
 type ErrorProps = { title: string | null; error: string | null };
 
-export function Error({ title, error }: ErrorProps) {
+export function ErrorPage({ title, error }: ErrorProps) {
     return (
         <div className="min-h-screen flex items-center justify-center">
             <Card className="w-full max-w-md">
