@@ -1,10 +1,48 @@
-import { Flex, Button, TextField } from '@radix-ui/themes';
+import { v4 as uuidv4 } from 'uuid';
+import { FormEvent, MouseEvent, useState } from 'react';
+import { Flex, Button, TextField, Heading } from '@radix-ui/themes';
+
+type Tasks = {
+    id: string;
+    name: string | null;
+};
 
 export function ToDo() {
+    const [taskName, setTaskName] = useState<string | null | undefined>('');
+    const [tasks, setTasks] = useState<Tasks[]>(() =>
+        JSON.parse(localStorage.getItem('items') ?? '[]'),
+    );
+    const handleSubmit = (e: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        const nextTask = {
+            id: uuidv4(),
+            name: taskName ?? '',
+        };
+        setTasks([...tasks, nextTask]);
+        localStorage.setItem('items', JSON.stringify([...tasks, nextTask]));
+        setTaskName('');
+    };
+
     return (
-        <Flex justify="center" gap="2">
-            <TextField.Root placeholder="Add a task…" />
-            <Button>Add</Button>
-        </Flex>
+        <form onSubmit={handleSubmit}>
+            <Flex justify="center" align="center" gap="2" mt="4">
+                <TextField.Root
+                    placeholder="Add a task…"
+                    value={taskName ?? ''}
+                    onChange={(e) => setTaskName(e.target.value)}
+                />
+                <Button onClick={handleSubmit}>Add</Button>
+            </Flex>
+            <Heading as="h2" align="center" mt="4">
+                Tasks
+            </Heading>
+            <Flex direction="column" align="center">
+                <ul>
+                    {tasks?.map(({ id, name }) => (
+                        <li key={id}>{name}</li>
+                    ))}
+                </ul>
+            </Flex>
+        </form>
     );
 }
