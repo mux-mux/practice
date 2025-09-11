@@ -5,6 +5,7 @@ import { Flex, Button, TextField, Heading } from '@radix-ui/themes';
 type Tasks = {
     id: string;
     name: string | null;
+    completed: boolean;
 };
 
 export function ToDo() {
@@ -14,13 +15,23 @@ export function ToDo() {
     );
     const handleSubmit = (e: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        if (taskName?.trim() === '') return;
+
         const nextTask = {
             id: uuidv4(),
             name: taskName ?? '',
+            completed: false,
         };
         setTasks([...tasks, nextTask]);
         localStorage.setItem('items', JSON.stringify([...tasks, nextTask]));
         setTaskName('');
+    };
+
+    const toggleTask = (id: string) => {
+        const newTasks = tasks.map((task) =>
+            task.id === id ? { ...task, completed: !task.completed } : task,
+        );
+        setTasks(newTasks);
     };
 
     return (
@@ -38,9 +49,15 @@ export function ToDo() {
             </Heading>
             <Flex direction="column" align="center">
                 <ul>
-                    {tasks?.map(({ id, name }) => (
-                        <li key={id}>{name}</li>
-                    ))}
+                    {tasks?.map(({ id, name, completed }) => {
+                        const completedStyle = completed ? { textDecoration: 'line-through' } : {};
+
+                        return (
+                            <li key={id} onClick={() => toggleTask(id)} style={completedStyle}>
+                                {name}
+                            </li>
+                        );
+                    })}
                 </ul>
             </Flex>
         </form>
